@@ -65,6 +65,12 @@
       document.getElementById("subtitle").innerText = "Choose your role";
     }
   }
+<script>
+  function setLanguage() {
+    const lang = document.getElementById("language").value;
+    localStorage.setItem("lang", lang);
+    window.location.href = "role.html";
+  }
 </script>
 
 </body>
