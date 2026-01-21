@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Law Book</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .box {
+      max-width: 400px;
+      padding: 20px;
+    }
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
+      font-size: 16px;
+      background: #1e90ff;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h1 id="title">Law Book</h1>
+
+  <button>Homicide</button>
+  <button>Theft</button>
+  <button>Fraud</button>
+  <button>Assault</button>
+  <button id="surprise">Surprise case</button>
+
+  <br><br>
+  <button onclick="window.location.href='index.html'">← Back</button>
+</div>
+
+<script>
+  const lang = localStorage.getItem("lang");
+
+  if (lang === "ar") {
+    title.innerText = "كتيب القانون";
+    document.querySelectorAll("button")[0].innerText = "جريمة قتل";
+    document.querySelectorAll("button")[1].innerText = "سرقة";
+    document.querySelectorAll("button")[2].innerText = "احتيال";
+    document.querySelectorAll("button")[3].innerText = "اعتداء";
+    surprise.innerText = "جريمة مفاجئة";
+  }
+
+  if (lang === "fr") {
+    title.innerText = "Code pénal";
+    document.querySelectorAll("button")[0].innerText = "Homicide";
+    document.querySelectorAll("button")[1].innerText = "Vol";
+    document.querySelectorAll("button")[2].innerText = "Fraude";
+    document.querySelectorAll("button")[3].innerText = "Agression";
+    surprise.innerText = "Cas surprise";
+  }
+</script>
+
+</body>
+</html>
