@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Justice Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .box {
+      max-width: 400px;
+      padding: 20px;
+    }
+    select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+    button {
+      background: #1e90ff;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h1 id="title">Welcome</h1>
+  <p id="subtitle">Choose your language</p>
+
+  <select id="language">
+    <option value="ar">العربية</option>
+    <option value="fr">Français</option>
+    <option value="en">English</option>
+  </select>
+
+  <button onclick="setLanguage()">Continue</button>
+</div>
+
+<script>
+  function setLanguage() {
+    const lang = document.getElementById("language").value;
+    if (lang === "ar") {
+      document.getElementById("title").innerText = "مرحبا";
+      document.getElementById("subtitle").innerText = "اختر دورك في اللعبة";
+    }
+    if (lang === "fr") {
+      document.getElementById("title").innerText = "Bienvenue";
+      document.getElementById("subtitle").innerText = "Choisissez votre rôle";
+    }
+    if (lang === "en") {
+      document.getElementById("title").innerText = "Welcome";
+      document.getElementById("subtitle").innerText = "Choose your role";
+    }
+  }
+</script>
+
+</body>
+</html>
