@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Choose Role</title>
+  <title>Role</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <style>
     body {
       margin: 0;
@@ -17,12 +16,10 @@
       height: 100vh;
       text-align: center;
     }
-
     .box {
       max-width: 400px;
       padding: 20px;
     }
-
     button {
       width: 100%;
       padding: 15px;
@@ -35,32 +32,35 @@
     }
   </style>
 </head>
-
 <body>
 
 <div class="box">
-  <h1 id="title">Choose your role</h1>
+  <h1 id="title">Choose role</h1>
 
-  <button id="judge">Judge</button>
-  <button id="lawyer">Lawyer</button>
-  <button id="investigator">Investigator</button>
+  <button onclick="go('judge.html')" id="judge">Judge</button>
+  <button onclick="go('lawyer.html')" id="lawyer">Lawyer</button>
+  <button onclick="go('investigator.html')" id="investigator">Investigator</button>
 </div>
 
 <script>
+  function go(page) {
+    window.location.href = page;
+  }
+
   const lang = localStorage.getItem("lang");
 
   if (lang === "ar") {
-    document.getElementById("title").innerText = "اختر دورك";
-    document.getElementById("judge").innerText = "قاضٍ";
-    document.getElementById("lawyer").innerText = "محامٍ";
-    document.getElementById("investigator").innerText = "محقق";
+    title.innerText = "اختر الدور";
+    judge.innerText = "قاضٍ";
+    lawyer.innerText = "محامٍ";
+    investigator.innerText = "محقق";
   }
 
   if (lang === "fr") {
-    document.getElementById("title").innerText = "Choisissez votre rôle";
-    document.getElementById("judge").innerText = "Juge";
-    document.getElementById("lawyer").innerText = "Avocat";
-    document.getElementById("investigator").innerText = "Enquêteur";
+    title.innerText = "Choisissez le rôle";
+    judge.innerText = "Juge";
+    lawyer.innerText = "Avocat";
+    investigator.innerText = "Enquêteur";
   }
 </script>
 
