@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Choose Role</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    .box {
+      max-width: 400px;
+      padding: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 15px;
+      font-size: 16px;
+      background: #1e90ff;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1 id="title">Choose your role</h1>
+
+  <button id="judge">Judge</button>
+  <button id="lawyer">Lawyer</button>
+  <button id="investigator">Investigator</button>
+</div>
+
+<script>
+  const lang = localStorage.getItem("lang");
+
+  if (lang === "ar") {
+    document.getElementById("title").innerText = "اختر دورك";
+    document.getElementById("judge").innerText = "قاضٍ";
+    document.getElementById("lawyer").innerText = "محامٍ";
+    document.getElementById("investigator").innerText = "محقق";
+  }
+
+  if (lang === "fr") {
+    document.getElementById("title").innerText = "Choisissez votre rôle";
+    document.getElementById("judge").innerText = "Juge";
+    document.getElementById("lawyer").innerText = "Avocat";
+    document.getElementById("investigator").innerText = "Enquêteur";
+  }
+</script>
+
+</body>
+</html>
