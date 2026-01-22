@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Law Book</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
@@ -30,42 +31,88 @@
       color: white;
       cursor: pointer;
     }
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
   </style>
 </head>
+
 <body>
 
 <div class="box">
+
+  <!-- اختيار اللغة -->
+  <select id="language" onchange="changeLanguage()">
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+    <option value="ar">العربية</option>
+  </select>
+
   <h1 id="title">Law Book</h1>
 
-  <button>Homicide</button>
-  <button>Theft</button>
-  <button>Fraud</button>
-  <button>Assault</button>
-  <button id="surprise">Surprise case</button>
+  <button onclick="goCase('homicide.html')" id="btn1">Homicide</button>
+  <button onclick="goCase('theft.html')" id="btn2">Theft</button>
+  <button onclick="goCase('fraud.html')" id="btn3">Fraud</button>
+  <button onclick="goCase('assault.html')" id="btn4">Assault</button>
+
+  <button onclick="surpriseCase()" id="surprise">Surprise Case</button>
 
   <br><br>
-  <button onclick="window.location.href='index.html'">← Back</button>
+  <button onclick="goCase('index.html')" id="back">← Back</button>
+
 </div>
 
 <script>
-  const lang = localStorage.getItem("lang");
-
-  if (lang === "ar") {
-    title.innerText = "كتيب القانون";
-    document.querySelectorAll("button")[0].innerText = "جريمة قتل";
-    document.querySelectorAll("button")[1].innerText = "سرقة";
-    document.querySelectorAll("button")[2].innerText = "احتيال";
-    document.querySelectorAll("button")[3].innerText = "اعتداء";
-    surprise.innerText = "جريمة مفاجئة";
+  function goCase(page) {
+    window.location.href = page;
   }
 
-  if (lang === "fr") {
-    title.innerText = "Code pénal";
-    document.querySelectorAll("button")[0].innerText = "Homicide";
-    document.querySelectorAll("button")[1].innerText = "Vol";
-    document.querySelectorAll("button")[2].innerText = "Fraude";
-    document.querySelectorAll("button")[3].innerText = "Agression";
-    surprise.innerText = "Cas surprise";
+  function surpriseCase() {
+    const cases = [
+      "homicide.html",
+      "theft.html",
+      "fraud.html",
+      "assault.html"
+    ];
+    const random = Math.floor(Math.random() * cases.length);
+    window.location.href = cases[random];
+  }
+
+  function changeLanguage() {
+    const lang = document.getElementById("language").value;
+
+    if (lang === "en") {
+      title.innerText = "Law Book";
+      btn1.innerText = "Homicide";
+      btn2.innerText = "Theft";
+      btn3.innerText = "Fraud";
+      btn4.innerText = "Assault";
+      surprise.innerText = "Surprise Case";
+      back.innerText = "← Back";
+    }
+
+    if (lang === "fr") {
+      title.innerText = "Code pénal";
+      btn1.innerText = "Homicide";
+      btn2.innerText = "Vol";
+      btn3.innerText = "Fraude";
+      btn4.innerText = "Agression";
+      surprise.innerText = "Cas surprise";
+      back.innerText = "← Retour";
+    }
+
+    if (lang === "ar") {
+      title.innerText = "كتيب القانون";
+      btn1.innerText = "جريمة قتل";
+      btn2.innerText = "سرقة";
+      btn3.innerText = "احتيال";
+      btn4.innerText = "اعتداء";
+      surprise.innerText = "قضية مفاجئة";
+      back.innerText = "← رجوع";
+    }
   }
 </script>
 
